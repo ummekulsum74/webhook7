@@ -1,5 +1,8 @@
 pipeline {
     agent any
+      environment {
+        PYTHON = 'C:\\Users\\student\\AppData\\Local\\Programs\\Python\\Python312\\python.exe'
+    }
 
     stages {
         stage('Checkout') {
