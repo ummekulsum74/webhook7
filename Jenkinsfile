@@ -1,8 +1,6 @@
+
 pipeline {
     agent any
-      environment {
-        PYTHON = 'C:\\Users\\student\\AppData\\Local\\Programs\\Python\\Python312\\python.exe'
-    }
 
     stages {
         stage('Checkout') {
@@ -14,20 +12,26 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Checking Python application'
-                bat 'python -m py_compile app.py'
+
+                bat '"C:\\Users\\student\\AppData\\Local\\Programs\\Python\\Python312\\python.exe" --version'
+
+                bat '"C:\\Users\\student\\AppData\\Local\\Programs\\Python\\Python312\\python.exe" -m py_compile app.py'
             }
         }
 
         stage('Test') {
             steps {
-                echo 'Executing automated tests'
-                bat 'python -m unittest app'
+                echo 'Running tests'
+
+                bat '"C:\\Users\\student\\AppData\\Local\\Programs\\Python\\Python312\\python.exe" -m unittest discover'
             }
         }
 
         stage('Run Application') {
             steps {
-                bat 'python app.py'
+                echo 'Running Python application'
+
+                bat '"C:\\Users\\student\\AppData\\Local\\Programs\\Python\\Python312\\python.exe" app.py'
             }
         }
     }
