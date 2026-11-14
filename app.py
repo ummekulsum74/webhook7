@@ -20,7 +20,7 @@ if __name__ == "__main__":
     print("Python Application Started")
 
     a = 10
-    b = 5
+    b = 15
 
     print("Addition:", add(a, b))
     print("Subtraction:", subtract(a, b))
